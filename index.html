@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="LeishemOS — an interactive developer desktop by Leishem." />
+    <link rel="manifest" href="manifest.json" />
+    <title>LeishemOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="boot-screen" class="boot-screen" aria-label="LeishemOS startup">
+      <div class="boot-orbit"><span class="orbit-dot"></span><span class="orbit-dot"></span><span class="orbit-dot"></span><strong>l</strong></div>
+      <p class="eyebrow">STAR DANCE / SYSTEM 01</p>
+      <h1>Leishem<span>OS</span></h1>
+      <p class="boot-status" id="boot-status">Initializing workspace...</p>
+      <div class="boot-progress"><span></span></div>
+      <button id="skip-boot" class="text-button">Skip startup</button>
+    </div>
+
+    <main id="welcome" class="welcome hidden">
+      <div class="welcome-grid"></div>
+      <section class="welcome-card">
+        <div class="brand-mark">l<span>/</span></div>
+        <p class="eyebrow">GUEST SESSION · 01</p>
+        <h2>Welcome to<br /><span>LeishemOS.</span></h2>
+        <p class="muted">A personal desktop for projects, experiments, and the ideas between them.</p>
+        <div class="welcome-meta"><span id="welcome-date"></span><span>● No password required</span></div>
+        <button id="enter-desktop" class="primary-button">Enter desktop <i data-lucide="arrow-up-right"></i></button>
+        <p class="welcome-tip">Tip: double-click a desktop icon, or press <kbd>⌘</kbd><kbd>K</kbd> to search.</p>
+      </section>
+    </main>
+
+    <main id="desktop" class="desktop hidden">
+      <header class="top-panel">
+        <button class="panel-button launcher-trigger" aria-label="Open applications"><i data-lucide="command"></i><b>LeishemOS</b></button>
+        <div class="panel-center"><span class="workspace-pill">● workspace 01</span><span id="active-app-label">Desktop</span></div>
+        <div class="panel-actions">
+          <button class="panel-button" id="quick-toggle" aria-label="Quick settings"><i data-lucide="sliders-horizontal"></i></button>
+          <button class="panel-button" id="notifications-toggle" aria-label="Notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
+          <button class="clock-button" id="clock-toggle"><strong id="clock">00:00</strong><small id="date"></small></button>
+        </div>
+      </header>
+
+      <section id="desktop-surface" class="desktop-surface">
+        <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+        <div id="desktop-icons" class="desktop-icons"></div>
+        <div id="windows" class="windows"></div>
+      </section>
+
+      <nav class="dock" id="dock" aria-label="Application dock"></nav>
+      <div id="launcher" class="popover launcher hidden"></div>
+      <div id="quick-panel" class="popover quick-panel hidden"></div>
+      <div id="notification-panel" class="popover notification-panel hidden"></div>
+      <div id="calendar-panel" class="popover calendar-panel hidden"></div>
+      <div id="context-menu" class="context-menu hidden"></div>
+      <div id="toasts" class="toasts" aria-live="polite"></div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
